@@ -1,0 +1,64 @@
+site_name: My Docs
+use_directory_urls: false
+site_url: https://mkdocs.netpascal.click/preview/
+repo_url: https://mkdocs.netpascal.click/editor/
+edit_uri: blob/main/docs/
+theme:
+  name: material
+  features:
+  - navigation.instant
+  - search.suggest
+  - search.highlight
+  - header.autohide
+  - navigation.footer
+  - navigation.indexes
+  - navigation.top
+  - navigation.path
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.sections
+  - navigation.expand
+  - content.code.copy
+  - content.code.select
+  - content.code.annotate
+
+plugins:
+  - tags:
+      tags_file: index.md
+  - search
+  - offline
+markdown_extensions:
+  - tables  
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+copyright: Copyright &copy; 2023 Pascal Noisette
+extra:
+  social:
+    - icon: simple/nextcloud
+      link: https://nextcloud.netpascal.click
+    - icon: simple/homeassistant
+      link: https://home.netpascal.click
+    - icon: simple/redmine
+      link: https://redmine.netpascal.click
+extra_javascript:
+  - javascripts/mathjax.js
+  - javascripts/polyfill.min.js
+  - javascripts/tex-mml-chtml.js
+  - javascripts/mhchem.js

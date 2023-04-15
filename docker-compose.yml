@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  editor:
+    image: squidfunk/mkdocs-material
+    ports:
+      - 3031:8000
+    command: "serve -a 0.0.0.0:8000 "
+    working_dir: /app/
+    volumes:
+      - /home/pascal/mkdocs:/app
+  production:
+    image: squidfunk/mkdocs-material
+    user: 1000:1000
+    entrypoint: "/bin/sh -c"
+    command: >
+      "sed 's/site_url:.*/site_url: \"\"/ ' mkdocs.yml > mkdocs.prod.yml && 
+             mkdocs build --config-file mkdocs.prod.yml"
+    working_dir: /app/
+    volumes:
+      - /home/pascal/mkdocs:/app
+  vscode:
+    image: codercom/code-server
+    command: "--auth none"
+    user: "1000:1000"
+    ports:
+      - 3033:8080
+    volumes:
+      - /home/pascal/mkdocs/:/home/coder/project:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/pascal/mkdocs/entrypoint.d:/entrypoint.d
