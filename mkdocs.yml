@@ -40,6 +40,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
   - footnotes
   - pymdownx.arithmatex:
       generic: true
@@ -48,7 +50,7 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
-copyright: Copyright &copy; 2023 Pascal Noisette
+copyright: Copyright &copy; 20 mai 2023 Pascal Noisette
 extra:
   social:
     - icon: simple/nextcloud
