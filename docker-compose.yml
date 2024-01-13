@@ -29,3 +29,15 @@ services:
       - /home/pascal/mkdocs/:/home/coder/project:rw
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/pascal/mkdocs/entrypoint.d:/entrypoint.d
+  slides:
+    image: mcr.microsoft.com/playwright:focal
+    entrypoint: "/bin/sh -c"
+    command: >
+      "while [ ! -f /app/site/index.html ]; do sleep 1; done && 
+      yarn install &&
+      find -type f -name slides.md -exec bash -c \"yarn slidev build {} --out `pwd`/site/\\\$(basename \\\$(dirname {}))\" \\\; "
+    working_dir: /app/
+    depends_on:
+      - production
+    volumes:
+      - /home/pascal/mkdocs:/app
