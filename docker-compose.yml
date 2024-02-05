@@ -41,3 +41,9 @@ services:
       - production
     volumes:
       - /home/pascal/mkdocs:/app
+  leanote:
+    image: docker.io/netpascal0123/leanote:markdown
+    volumes:
+      - /home/pascal/mkdocs/docs:/leanote/docs
+    ports:
+      - 9000:9000
