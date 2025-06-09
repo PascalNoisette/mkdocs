@@ -5,6 +5,7 @@ repo_url: https://mkdocs.netpascal.click/editor/
 edit_uri: blob/main/docs/
 theme:
   name: material
+  custom_dir: overrides
   features:
   - navigation.instant
   - search.suggest
@@ -64,3 +65,4 @@ extra_javascript:
   - javascripts/polyfill.min.js
   - javascripts/tex-mml-chtml.js
   - javascripts/mhchem.js
+  - javascripts/register_service_worker.js

@@ -1,0 +1,22 @@
+{
+    "name": "PWA Docs",
+    "short_name": "PWA Docs",
+    "start_url": "index.html",
+    "display": "standalone",
+    "scope": ".",
+    "icons": [
+      {
+        "src": "assets/images/favicon.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/images/favicon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "background_color": "#ffffffb3",
+    "theme_color": "#3f51b5"
+  }
+  

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+{# Using https://github.com/squidfunk/mkdocs-material/discussions/5263#discussioncomment-5431220 #}
+{# config not working https://github.com/squidfunk/mkdocs-material/issues/810#issuecomment-438442460 #}
+{# see also https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/crossorigin #}
+<link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
+{% endblock %}
