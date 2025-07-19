@@ -47,7 +47,6 @@ function upgradeCache(event) {
 self.addEventListener("fetch", function (event) {
   if (event.request.method !== "GET") return;
 
-  event.request.url = event.request.url.split("?")[0].split("#")[0];
 
   event.respondWith(
     fetch(event.request)
@@ -71,7 +70,7 @@ function fromCache(request) {
   // Return response
   // If not in the cache, then return the offline page
   return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
+    return cache.match(request, {ignoreSearch: true}).then(function (matching) {
       if (!matching || matching.status === 404) {
         return Promise.reject("no-match");
       }
