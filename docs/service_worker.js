@@ -51,6 +51,9 @@ self.addEventListener("fetch", function (event) {
   event.respondWith(
     fetch(event.request)
       .then(function (response) {
+        if (response.status != 200) {
+          throw response;
+        }
         console.log("[PWA Builder] add page to offline cache: " + response.url);
 
         // If request was success, add or update it in the cache
